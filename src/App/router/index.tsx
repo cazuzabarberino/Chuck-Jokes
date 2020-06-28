@@ -1,7 +1,8 @@
 import React from "react";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { Content } from "./styles";
 import Home from "../pages/Home";
+import { Content } from "./styles";
 
 const Router: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Router: React.FC = () => {
       <Content>
         <Home />
       </Content>
+      {/* <Footer /> */}
     </>
   );
 };
