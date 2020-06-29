@@ -8,17 +8,24 @@ import {
   NavMenu,
 } from "./styles";
 import { FiMenu } from "react-icons/fi";
+import { useHistory } from "react-router";
+import { routes } from "../../router";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { push } = useHistory();
 
   const toggleMenu = useCallback(() => {
     setMenuOpen((state) => !state);
   }, []);
 
+  const goToHome = useCallback(() => push(routes.home), [push]);
+  const goToExplore = useCallback(() => push(routes.explore), [push]);
+  const goToFavorites = useCallback(() => push(routes.favorites), [push]);
+
   return (
     <Container open={isMenuOpen}>
-      <Title>
+      <Title onClick={goToHome}>
         <img
           src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
           alt=""
@@ -29,10 +36,10 @@ const Header: React.FC = () => {
       <Navigation open={isMenuOpen}>
         <ul>
           <li>
-            <NavButton>Favorites</NavButton>
+            <NavButton onClick={goToFavorites}>Favorites</NavButton>
           </li>
           <li>
-            <MainNavButton>Explore Jokes</MainNavButton>
+            <MainNavButton onClick={goToExplore}>Explore Jokes</MainNavButton>
           </li>
         </ul>
       </Navigation>
