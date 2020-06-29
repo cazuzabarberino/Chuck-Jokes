@@ -9,6 +9,8 @@ export const Container = styled.div<NavigationProps>`
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 99;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,7 +122,7 @@ export const NavButton = styled(MainNavButton)`
       bottom: 0;
       width: 100%;
       height: 2px;
-      background-color: #fc2f70;
+      background-color: ${({ theme }) => theme.secondary};
       transform-origin: center;
       transform: translate(-50%, 0) scaleX(0);
       transition: transform 0.3s ease-in-out;

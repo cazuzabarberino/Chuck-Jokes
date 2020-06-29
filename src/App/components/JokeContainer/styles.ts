@@ -1,11 +1,38 @@
 import styled from "styled-components";
+import { shade } from "polished";
 
 export const Container = styled.div`
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
   max-width: 900px;
-  padding: 16px;
   border-radius: 8px;
   margin: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+`;
+
+export const JokeWrapper = styled.div`
+  padding: 16px;
+  grid-column: 1/3;
+`;
+
+export const NavigationButtons = styled.div`
+  background: ${({ theme }) => theme.secondary};
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  :hover {
+    background: ${({ theme }) => shade(0.2, theme.secondary)};
+  }
+
+  > svg {
+    color: ${({ theme }) => theme.primary};
+    width: 48px;
+    height: 48px;
+  }
 `;
 
 export const HorizontalLine = styled.div`
@@ -51,8 +78,8 @@ export const JokeOptions = styled.div`
 
   svg {
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     transition: 0.2s;
 
     :hover {

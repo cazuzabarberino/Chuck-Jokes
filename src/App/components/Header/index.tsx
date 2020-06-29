@@ -10,7 +10,7 @@ import {
 import { FiMenu } from "react-icons/fi";
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = useCallback(() => {
     setMenuOpen((state) => !state);
