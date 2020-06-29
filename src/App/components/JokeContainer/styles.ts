@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { shade } from "polished";
 
 export const Container = styled.div`
   max-width: 900px;
+  width: calc(100% - 32px);
   border-radius: 8px;
   margin: 16px;
   display: grid;
@@ -44,9 +45,9 @@ export const HorizontalLine = styled.div`
   margin-bottom: 8px;
 `;
 
-export const Joke = styled.div`
+export const JokeArea = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 16px;
 `;
@@ -90,5 +91,49 @@ export const JokeOptions = styled.div`
     + svg {
       margin-left: 8px;
     }
+  }
+`;
+
+const leftSwing = keyframes`
+  50%,
+  100% {
+    transform: translateX(95%);
+  }
+`;
+
+const rightSwing = keyframes`
+  50% {
+    transform: translateX(-95%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+`;
+
+export const Loading = styled.div`
+  font-size: 24px;
+  width: 4em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  padding: 16px 0;
+
+  div {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.secondary};
+  }
+
+  div:nth-of-type(1) {
+    transform: translateX(-100%);
+    animation: ${leftSwing} 0.5s ease-in alternate infinite;
+  }
+
+  div:nth-of-type(3) {
+    transform: translateX(-95%);
+    animation: ${rightSwing} 0.5s ease-out alternate infinite;
   }
 `;

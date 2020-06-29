@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, WelcomeMsg } from "./styles";
 import JokeContainer from "../../components/JokeContainer";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../redux";
+import { fetchRandomJoke } from "../../../redux/Jokes/actions";
 
 const Home: React.FC = () => {
+  const { joke } = useSelector((state: RootState) => state.jokes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRandomJoke());
+  }, [dispatch]);
+
   return (
     <Container>
       <WelcomeMsg>
-        {/* <div /> */}
         <p>
           Welcome to
           <br />
@@ -23,7 +32,7 @@ const Home: React.FC = () => {
         </p>
         <button>Explore Jokes</button>
       </WelcomeMsg>
-      <JokeContainer />
+      <JokeContainer joke={joke} />
     </Container>
   );
 };
