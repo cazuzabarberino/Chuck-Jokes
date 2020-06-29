@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
   Container,
   Navigation,
   NavButton,
   MainNavButton,
   Title,
+  NavMenu,
 } from "./styles";
+import { FiMenu } from "react-icons/fi";
 
 const Header: React.FC = () => {
+  const [isMenuOpen, setMenuOpen] = useState(true);
+
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((state) => !state);
+  }, []);
+
   return (
-    <Container>
+    <Container open={isMenuOpen}>
       <Title>
         <img
           src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
@@ -18,7 +26,7 @@ const Header: React.FC = () => {
         <h1>Chuck Jokes</h1>
       </Title>
 
-      <Navigation>
+      <Navigation open={isMenuOpen}>
         <ul>
           <li>
             <NavButton>Favorites</NavButton>
@@ -28,6 +36,9 @@ const Header: React.FC = () => {
           </li>
         </ul>
       </Navigation>
+      <NavMenu onClick={toggleMenu}>
+        <FiMenu />
+      </NavMenu>
     </Container>
   );
 };
