@@ -12,31 +12,32 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import {
   Container,
   HorizontalLine,
-  Joke,
+  JokeArea,
   JokeOptions,
   JokeText,
   JokeWrapper,
   NavigationButtons,
   Quote,
 } from "./styles";
+import Joke from "../../../models/Joke";
 
-const JokeContainer: React.FC = () => {
+interface Props {
+  joke: Joke | null;
+}
+
+const JokeContainer: React.FC<Props> = ({ joke }) => {
   return (
     <Container>
       <JokeWrapper>
-        <Joke>
+        <JokeArea>
           <Quote>
             <FaQuoteLeft />
           </Quote>
-          <JokeText>
-            Every Easter, Chuck Norris like to celebrate by using his powers as
-            a necromancer to resurrect Jesus Christ, then immediately roundhouse
-            kick him to death again.
-          </JokeText>
+          <JokeText>{joke && joke.value}</JokeText>
           <Quote>
             <FaQuoteRight />
           </Quote>
-        </Joke>
+        </JokeArea>
         <HorizontalLine />
         <JokeOptions>
           <FaRegStar />

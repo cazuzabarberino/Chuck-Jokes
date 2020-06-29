@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import chuckPhoto from "../../../Assets/chuck-photo.jpg";
 import { shade } from "polished";
+import styled from "styled-components";
 
 export const Container = styled.div`
   flex: 1;
@@ -54,22 +53,4 @@ export const WelcomeMsg = styled.div`
       background: ${({ theme }) => shade(0.2, theme.secondary)};
     }
   }
-
-  /* div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url(${chuckPhoto});
-    background-size: cover;
-    background-position: top;
-
-    ::before {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      background: ${({ theme }) => theme.primary};
-      opacity: 0.9;
-    }
-  } */
 `;

@@ -3,6 +3,7 @@ import { shade } from "polished";
 
 export const Container = styled.div`
   max-width: 900px;
+  width: calc(100% - 32px);
   border-radius: 8px;
   margin: 16px;
   display: grid;
@@ -44,9 +45,9 @@ export const HorizontalLine = styled.div`
   margin-bottom: 8px;
 `;
 
-export const Joke = styled.div`
+export const JokeArea = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 16px;
 `;
