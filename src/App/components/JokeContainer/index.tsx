@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -21,12 +21,20 @@ import {
   Loading,
 } from "./styles";
 import Joke from "../../../models/Joke";
+import { useDispatch } from "react-redux";
+import { fetchRandomJoke } from "../../../redux/Jokes/actions";
 
 interface Props {
   joke: Joke | null;
+  canNavigate?: boolean;
+  showOptions?: boolean;
 }
 
-const JokeContainer: React.FC<Props> = ({ joke }) => {
+const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
+  const dispatch = useDispatch();
+
+  const getNewJoke = useCallback(() => dispatch(fetchRandomJoke()), [dispatch]);
+
   return (
     <Container>
       <JokeWrapper>
@@ -47,23 +55,31 @@ const JokeContainer: React.FC<Props> = ({ joke }) => {
             <FaQuoteRight />
           </Quote>
         </JokeArea>
-        <HorizontalLine />
-        <JokeOptions>
-          <FaRegStar />
-          <div>
-            <FaFacebook />
-            <FaWhatsapp />
-            <FaTwitter />
-            <FaInstagram />
-          </div>
-        </JokeOptions>
+        {showOptions && (
+          <>
+            <HorizontalLine />
+            <JokeOptions>
+              <FaRegStar />
+              <div>
+                <FaFacebook />
+                <FaWhatsapp />
+                <FaTwitter />
+                <FaInstagram />
+              </div>
+            </JokeOptions>
+          </>
+        )}
       </JokeWrapper>
-      <NavigationButtons>
-        <IoIosArrowBack />
-      </NavigationButtons>
-      <NavigationButtons>
-        <IoIosArrowForward />
-      </NavigationButtons>
+      {canNavigate && (
+        <>
+          <NavigationButtons>
+            <IoIosArrowBack />
+          </NavigationButtons>
+          <NavigationButtons onClick={getNewJoke}>
+            <IoIosArrowForward />
+          </NavigationButtons>
+        </>
+      )}
     </Container>
   );
 };

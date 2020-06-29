@@ -11,10 +11,15 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchRandomJoke());
+    const interval = setInterval(() => {
+      dispatch(fetchRandomJoke());
+    }, 10000);
+    return () => clearInterval(interval);
   }, [dispatch]);
 
   return (
     <Container>
+      <JokeContainer joke={joke} />
       <WelcomeMsg>
         <p>
           Welcome to
@@ -32,7 +37,6 @@ const Home: React.FC = () => {
         </p>
         <button>Explore Jokes</button>
       </WelcomeMsg>
-      <JokeContainer joke={joke} />
     </Container>
   );
 };
