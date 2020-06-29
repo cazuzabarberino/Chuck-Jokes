@@ -4,10 +4,13 @@ import JokeContainer from "../../components/JokeContainer";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux";
 import { fetchRandomJoke } from "../../../redux/Jokes/actions";
+import { useHistory } from "react-router";
+import { routes } from "../../router";
 
 const Home: React.FC = () => {
   const { joke } = useSelector((state: RootState) => state.jokes);
   const dispatch = useDispatch();
+  const { push } = useHistory();
 
   useEffect(() => {
     dispatch(fetchRandomJoke());
@@ -35,7 +38,14 @@ const Home: React.FC = () => {
           </a>
           .
         </p>
-        <button>Explore Jokes</button>
+        <button
+          onClick={() => {
+            push(routes.explore);
+            console.log("lol");
+          }}
+        >
+          Explore Jokes
+        </button>
       </WelcomeMsg>
     </Container>
   );

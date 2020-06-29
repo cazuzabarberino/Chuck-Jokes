@@ -1,12 +1,10 @@
-import React from "react";
-import Header from "../components/Header";
-import Home from "../pages/Home";
-import Explore from "../pages/Explore";
-import { Content } from "./styles";
-import { Switch, Route, Router as ReactRouterDOM } from "react-router-dom";
 import { createBrowserHistory } from "history";
-
-const history = createBrowserHistory();
+import React from "react";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import Header from "../components/Header";
+import Explore from "../pages/Explore";
+import Home from "../pages/Home";
+import { Content } from "./styles";
 
 export const routes = {
   home: "/",
@@ -16,15 +14,15 @@ export const routes = {
 
 const Router: React.FC = () => {
   return (
-    <ReactRouterDOM history={history}>
+    <HashRouter basename="">
       <Header />
       <Content>
         <Switch>
-          <Route path={"/Chuck-Jokes" + routes.explore} component={Explore} />
-          <Route exact path={"/Chuck-Jokes" + routes.home} component={Home} />
+          <Route path={routes.explore} component={Explore} />
+          <Route exact path={routes.home} component={Home} />
         </Switch>
       </Content>
-    </ReactRouterDOM>
+    </HashRouter>
   );
 };
 
