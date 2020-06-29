@@ -1,2 +1,0 @@
-(this["webpackJsonpchuck-jokes"]=this["webpackJsonpchuck-jokes"]||[]).push([[0],{3:function(e,t,n){e.exports=n(8)},8:function(e,t,n){"use strict";n.r(t);var c=n(0),r=n.n(c),o=n(2);var a=function(){return r.a.createElement("div",null,"Hello App")};n.n(o).a.render(r.a.createElement(r.a.StrictMode,null,r.a.createElement(a,null)),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.325e548f.chunk.js.map
