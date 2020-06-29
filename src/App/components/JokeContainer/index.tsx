@@ -18,6 +18,7 @@ import {
   JokeWrapper,
   NavigationButtons,
   Quote,
+  Loading,
 } from "./styles";
 import Joke from "../../../models/Joke";
 
@@ -33,7 +34,15 @@ const JokeContainer: React.FC<Props> = ({ joke }) => {
           <Quote>
             <FaQuoteLeft />
           </Quote>
-          <JokeText>{joke && joke.value}</JokeText>
+          {joke ? (
+            <JokeText>{joke.value}</JokeText>
+          ) : (
+            <Loading>
+              <div />
+              <div />
+              <div />
+            </Loading>
+          )}
           <Quote>
             <FaQuoteRight />
           </Quote>
