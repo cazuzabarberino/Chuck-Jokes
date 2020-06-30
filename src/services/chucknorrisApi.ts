@@ -14,3 +14,12 @@ export const getRandomJoke = async (): Promise<Joke> => {
     return {} as Joke;
   }
 };
+
+export const getCategories = async (): Promise<string[]> => {
+  try {
+    const response = await api.get<string[]>("categories");
+    return response.data;
+  } catch (err) {
+    return [];
+  }
+};

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -19,6 +19,7 @@ import {
   NavigationButtons,
   Quote,
   Loading,
+  JokeView,
 } from "./styles";
 import Joke from "../../../models/Joke";
 import { useDispatch } from "react-redux";
@@ -32,8 +33,15 @@ interface Props {
 
 const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
   const dispatch = useDispatch();
-
+  const JokeTextRef = useRef<HTMLParagraphElement>(null);
+  const [height, setHeight] = useState(32);
   const getNewJoke = useCallback(() => dispatch(fetchRandomJoke()), [dispatch]);
+
+  useLayoutEffect(() => {
+    setHeight(
+      joke ? JokeTextRef.current?.getBoundingClientRect().height || 32 : 32
+    );
+  }, [joke, setHeight]);
 
   return (
     <Container>
@@ -42,15 +50,18 @@ const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
           <Quote>
             <FaQuoteLeft />
           </Quote>
-          {joke ? (
-            <JokeText>{joke.value}</JokeText>
-          ) : (
-            <Loading>
-              <div />
-              <div />
-              <div />
-            </Loading>
-          )}
+          <JokeView height={height}>
+            {joke ? (
+              <JokeText ref={JokeTextRef}>{joke.value}</JokeText>
+            ) : (
+              <Loading>
+                <div />
+                <div />
+                <div />
+              </Loading>
+            )}
+          </JokeView>
+
           <Quote>
             <FaQuoteRight />
           </Quote>

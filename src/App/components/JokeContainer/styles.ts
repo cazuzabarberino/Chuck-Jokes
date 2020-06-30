@@ -52,6 +52,19 @@ export const JokeArea = styled.div`
   column-gap: 16px;
 `;
 
+interface JokeViewProps {
+  height: number;
+}
+
+export const JokeView = styled.div<JokeViewProps>`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: ${({ height }) => height}px;
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+`;
+
 export const Quote = styled.div`
   :first-child {
     align-self: flex-start;
@@ -67,6 +80,7 @@ export const Quote = styled.div`
 `;
 
 export const JokeText = styled.p`
+  position: absolute;
   font-size: 24px;
   text-align: justify;
 `;
