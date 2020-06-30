@@ -40,7 +40,7 @@
 ## Motivation
 
 This project is part of the selection process of the company GuiaBolso.
-In this project I improved my knowledge in react hooks and I was able to learn more about how to manage the state using redux and redux-saga.
+In this project I improved my knowledge in react hooks and was able to learn more about how to manage the state using redux and redux-saga.
 
 ## Features
 
