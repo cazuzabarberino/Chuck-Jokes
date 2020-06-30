@@ -84,7 +84,7 @@ export const CategoryOptions = styled.div<CategoryOptionsProps>`
     font-size: 16px;
     font-weight: bold;
     padding: 8px 0;
-    transition: color 0.2s, background 0.2s, max-width .3s;
+    transition: color 0.2s, background 0.2s, max-width 0.3s;
     white-space: nowrap;
 
     @media (hover: hover) and (pointer: fine) {

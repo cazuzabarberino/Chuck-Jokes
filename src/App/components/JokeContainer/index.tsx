@@ -1,35 +1,34 @@
-import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import {
   FaFacebook,
-  FaReddit,
   FaQuoteLeft,
   FaQuoteRight,
+  FaReddit,
   FaRegStar,
   FaTwitter,
   FaWhatsapp,
 } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import {
+  FacebookShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import Joke from "../../../models/Joke";
+import { fetchRandomJoke } from "../../../redux/Jokes/actions";
 import {
   Container,
   HorizontalLine,
   JokeArea,
   JokeOptions,
   JokeText,
+  JokeView,
   JokeWrapper,
+  Loading,
   NavigationButtons,
   Quote,
-  Loading,
-  JokeView,
 } from "./styles";
-import Joke from "../../../models/Joke";
-import { useDispatch } from "react-redux";
-import { fetchRandomJoke } from "../../../redux/Jokes/actions";
-import {
-  WhatsappShareButton,
-  FacebookShareButton,
-  TwitterShareButton,
-  RedditShareButton,
-} from "react-share";
 
 interface Props {
   joke: Joke | null;
@@ -96,14 +95,7 @@ const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
         )}
       </JokeWrapper>
       {canNavigate && (
-        <>
-          <NavigationButtons>
-            <IoIosArrowBack />
-          </NavigationButtons>
-          <NavigationButtons onClick={getNewJoke}>
-            <IoIosArrowForward />
-          </NavigationButtons>
-        </>
+        <NavigationButtons onClick={getNewJoke}>Next Joke</NavigationButtons>
       )}
     </Container>
   );

@@ -7,7 +7,7 @@ export const Container = styled.div`
   border-radius: 8px;
   margin: 16px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   column-gap: 4px;
   overflow: hidden;
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,6 @@ export const Container = styled.div`
 
 export const JokeWrapper = styled.div`
   padding: 16px;
-  grid-column: 1/3;
 `;
 
 export const NavigationButtons = styled.div`
@@ -24,16 +23,14 @@ export const NavigationButtons = styled.div`
   place-content: center;
   cursor: pointer;
   transition: background 0.2s;
+  color: ${({ theme }) => theme.primary};
+  font-size: 24px;
+  padding: 12px 0;
+  font-weight: bold;
   @media (hover: hover) and (pointer: fine) {
     :hover {
       background: ${({ theme }) => shade(0.2, theme.secondary)};
     }
-  }
-
-  > svg {
-    color: ${({ theme }) => theme.primary};
-    width: 48px;
-    height: 48px;
   }
 `;
 

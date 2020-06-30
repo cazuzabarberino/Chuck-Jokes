@@ -24,13 +24,19 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <JokeContainer joke={joke} />
       <WelcomeMsg>
         <p>
           Welcome to
           <br />
           <span>Chuck Jokes!</span>
-          <br />A Chuck Norris facts explorer powered by{" "}
+        </p>
+      </WelcomeMsg>
+      <button>
+        <JokeContainer joke={joke} />
+      </button>
+      <WelcomeMsg>
+        <p>
+          A Chuck Norris facts explorer powered by{" "}
           <a
             href="https://api.chucknorris.io/"
             target="_blank"

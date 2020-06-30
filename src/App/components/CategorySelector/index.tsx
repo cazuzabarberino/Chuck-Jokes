@@ -56,17 +56,21 @@ const CategorySelector: React.FC = () => {
 
   return (
     <Container>
-      <CategoryArea>
-        <p>Categories</p>
-        {mappedCategories}
-      </CategoryArea>
-      <CategoryOptions
-        hideSelectAll={!!categories && categories.unselected.length === 0}
-        hideUnselectAll={!!categories && categories.selected.length === 0}
-      >
-        <button onClick={handleUnselectAll}>Unselect All</button>
-        <button onClick={handleSelectAll}>Select All</button>
-      </CategoryOptions>
+      {categories && (
+        <>
+          <CategoryArea>
+            <p>Categories</p>
+            {mappedCategories}
+          </CategoryArea>
+          <CategoryOptions
+            hideSelectAll={!!categories && categories.unselected.length === 0}
+            hideUnselectAll={!!categories && categories.selected.length === 0}
+          >
+            <button onClick={handleUnselectAll}>Unselect All</button>
+            <button onClick={handleSelectAll}>Select All</button>
+          </CategoryOptions>
+        </>
+      )}
     </Container>
   );
 };
