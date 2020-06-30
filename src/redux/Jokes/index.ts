@@ -34,7 +34,7 @@ export const JokesReducer = (
     case JokesActionType.SET_CATEGORIES:
       return {
         ...state,
-        categories: { selected: action.payload.categories, unselected: [] },
+        categories: { unselected: action.payload.categories, selected: [] },
       };
     case JokesActionType.SELECT_CATEGORY:
       if (!state.categories) return state;

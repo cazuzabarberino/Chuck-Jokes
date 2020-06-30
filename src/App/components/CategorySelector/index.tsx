@@ -60,7 +60,10 @@ const CategorySelector: React.FC = () => {
         <p>Categories</p>
         {mappedCategories}
       </CategoryArea>
-      <CategoryOptions>
+      <CategoryOptions
+        hideSelectAll={!!categories && categories.unselected.length === 0}
+        hideUnselectAll={!!categories && categories.selected.length === 0}
+      >
         <button onClick={handleUnselectAll}>Unselect All</button>
         <button onClick={handleSelectAll}>Select All</button>
       </CategoryOptions>

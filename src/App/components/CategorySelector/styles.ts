@@ -64,7 +64,12 @@ export const CategoryBtn = styled.button<CategoryBtnProps>`
         `}
 `;
 
-export const CategoryOptions = styled.div`
+interface CategoryOptionsProps {
+  hideSelectAll: boolean;
+  hideUnselectAll: boolean;
+}
+
+export const CategoryOptions = styled.div<CategoryOptionsProps>`
   display: flex;
   width: 100%;
   border-radius: 0 0 8px 8px;
@@ -72,14 +77,16 @@ export const CategoryOptions = styled.div`
 
   button {
     flex: 1;
-    width: 100%;
+    max-width: 100%;
     background: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.primary};
     border: 2px solid ${({ theme }) => theme.secondary};
     font-size: 16px;
     font-weight: bold;
     padding: 8px 0;
-    transition: color 0.2s, background 0.2s;
+    transition: color 0.2s, background 0.2s, 1s;
+    white-space: nowrap;
+
     @media (hover: hover) and (pointer: fine) {
       :hover {
         background: ${({ theme }) => shade(0.2, theme.secondary)};
@@ -98,10 +105,20 @@ export const CategoryOptions = styled.div`
           border-color: ${({ theme }) => theme.secondary};
         }
       }
+
+      ${({ hideUnselectAll }) =>
+        hideUnselectAll &&
+        css`
+          max-width: 0%;
+        `};
     }
 
-    + button {
-      margin-left: 4px;
+    :last-of-type {
+      ${({ hideSelectAll }) =>
+        hideSelectAll &&
+        css`
+          max-width: 0%;
+        `};
     }
   }
 `;
