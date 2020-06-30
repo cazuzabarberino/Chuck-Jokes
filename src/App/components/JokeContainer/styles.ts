@@ -10,7 +10,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 4px;
   overflow: hidden;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, .1);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const JokeWrapper = styled.div`
@@ -24,9 +24,10 @@ export const NavigationButtons = styled.div`
   place-content: center;
   cursor: pointer;
   transition: background 0.2s;
-
-  :hover {
-    background: ${({ theme }) => shade(0.2, theme.secondary)};
+  @media (hover: hover) and (pointer: fine) {
+    :hover {
+      background: ${({ theme }) => shade(0.2, theme.secondary)};
+    }
   }
 
   > svg {
@@ -96,10 +97,11 @@ export const JokeOptions = styled.div`
     width: 32px;
     height: 32px;
     transition: 0.2s;
-
-    :hover {
-      color: ${({ theme }) => theme.secondary};
-      transform: scale(1.1);
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        color: ${({ theme }) => theme.secondary};
+        transform: scale(1.1);
+      }
     }
 
     + svg {

@@ -48,13 +48,15 @@ export const CategoryBtn = styled.button<CategoryBtnProps>`
       ? css`
           background: ${theme.secondary};
           color: ${theme.primary};
-
-          :hover {
-            background: ${shade(0.2, theme.secondary)};
-            border-color: ${shade(0.2, theme.secondary)};
+          @media (hover: hover) and (pointer: fine) {
+            :hover {
+              background: ${shade(0.2, theme.secondary)};
+              border-color: ${shade(0.2, theme.secondary)};
+            }
           }
         `
       : css`
+        @media(hover: hover) and (pointer: fine) {
           :hover {
             background: ${({ theme }) => theme.secondary};
             color: ${({ theme }) => theme.primary};
@@ -75,23 +77,26 @@ export const CategoryOptions = styled.div`
     color: ${({ theme }) => theme.primary};
     border: 2px solid ${({ theme }) => theme.secondary};
     font-size: 16px;
+    font-weight: bold;
     padding: 8px 0;
     transition: color 0.2s, background 0.2s;
-
-    :hover {
-      background: ${({ theme }) => shade(0.2, theme.secondary)};
-      border-color: ${({ theme }) => shade(0.2, theme.secondary)};
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        background: ${({ theme }) => shade(0.2, theme.secondary)};
+        border-color: ${({ theme }) => shade(0.2, theme.secondary)};
+      }
     }
 
     :first-of-type {
       color: ${({ theme }) => theme.secondary};
       background: ${({ theme }) => theme.primary};
       border-bottom-left-radius: 8px;
-
-      :hover {
-        background: ${({ theme }) => theme.secondary};
-        color: ${({ theme }) => theme.primary};
-        border-color: ${({ theme }) => theme.secondary};
+      @media (hover: hover) and (pointer: fine) {
+        :hover {
+          background: ${({ theme }) => theme.secondary};
+          color: ${({ theme }) => theme.primary};
+          border-color: ${({ theme }) => theme.secondary};
+        }
       }
     }
 

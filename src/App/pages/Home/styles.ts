@@ -49,9 +49,10 @@ export const WelcomeMsg = styled.div`
     padding: 8px 32px;
     transition: background 0.2s;
     align-self: flex-start;
-
-    :hover {
-      background: ${({ theme }) => shade(0.2, theme.secondary)};
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        background: ${({ theme }) => shade(0.2, theme.secondary)};
+      }
     }
   }
 `;

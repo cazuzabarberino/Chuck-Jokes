@@ -17,7 +17,7 @@ export const jokesWatchers = {
 };
 
 export function* fetchRandomJoke() {
-  const joke = yield call(getRandomJoke);
+  const joke = yield call(() => getRandomJoke());
   yield put(setRandomJoke(joke));
 }
 

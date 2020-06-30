@@ -100,9 +100,10 @@ export const MainNavButton = styled.button`
   transition: background 0.2s;
 
   width: 100%;
-
-  :hover {
-    background: ${({ theme }) => shade(0.2, theme.secondary)};
+  @media (hover: hover) and (pointer: fine) {
+    :hover {
+      background: ${({ theme }) => shade(0.2, theme.secondary)};
+    }
   }
 
   @media (max-width: 900px) {
@@ -131,9 +132,10 @@ export const NavButton = styled(MainNavButton)`
     :hover::before {
       transform: translate(-50%, 0) scaleX(1);
     }
-
-    :hover {
-      background: none;
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        background: none;
+      }
     }
   }
 `;
