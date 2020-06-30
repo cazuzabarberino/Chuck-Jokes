@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
 import {
   FaFacebook,
-  FaInstagram,
+  FaReddit,
   FaQuoteLeft,
   FaQuoteRight,
   FaRegStar,
@@ -24,6 +24,12 @@ import {
 import Joke from "../../../models/Joke";
 import { useDispatch } from "react-redux";
 import { fetchRandomJoke } from "../../../redux/Jokes/actions";
+import {
+  WhatsappShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+} from "react-share";
 
 interface Props {
   joke: Joke | null;
@@ -72,10 +78,18 @@ const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
             <JokeOptions>
               <FaRegStar />
               <div>
-                <FaFacebook />
-                <FaWhatsapp />
-                <FaTwitter />
-                <FaInstagram />
+                <FacebookShareButton url={window.location.href}>
+                  <FaFacebook />
+                </FacebookShareButton>
+                <WhatsappShareButton url={window.location.href}>
+                  <FaWhatsapp />
+                </WhatsappShareButton>
+                <TwitterShareButton url={window.location.href}>
+                  <FaTwitter />
+                </TwitterShareButton>
+                <RedditShareButton url={window.location.href}>
+                  <FaReddit />
+                </RedditShareButton>
               </div>
             </JokeOptions>
           </>

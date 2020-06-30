@@ -92,6 +92,19 @@ export const JokeOptions = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  button {
+    display: grid;
+    place-content: center;
+
+    + button {
+      margin-left: 8px;
+    }
+  }
+
+  > div {
+    display: flex;
+  }
+
   svg {
     cursor: pointer;
     width: 32px;
@@ -102,10 +115,6 @@ export const JokeOptions = styled.div`
         color: ${({ theme }) => theme.secondary};
         transform: scale(1.1);
       }
-    }
-
-    + svg {
-      margin-left: 8px;
     }
   }
 `;
