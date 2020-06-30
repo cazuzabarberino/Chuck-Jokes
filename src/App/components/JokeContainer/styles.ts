@@ -7,15 +7,14 @@ export const Container = styled.div`
   border-radius: 8px;
   margin: 16px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   column-gap: 4px;
   overflow: hidden;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const JokeWrapper = styled.div`
   padding: 16px;
-  grid-column: 1/3;
 `;
 
 export const NavigationButtons = styled.div`
@@ -24,15 +23,14 @@ export const NavigationButtons = styled.div`
   place-content: center;
   cursor: pointer;
   transition: background 0.2s;
-
-  :hover {
-    background: ${({ theme }) => shade(0.2, theme.secondary)};
-  }
-
-  > svg {
-    color: ${({ theme }) => theme.primary};
-    width: 48px;
-    height: 48px;
+  color: ${({ theme }) => theme.primary};
+  font-size: 24px;
+  padding: 12px 0;
+  font-weight: bold;
+  @media (hover: hover) and (pointer: fine) {
+    :hover {
+      background: ${({ theme }) => shade(0.2, theme.secondary)};
+    }
   }
 `;
 
@@ -52,6 +50,19 @@ export const JokeArea = styled.div`
   column-gap: 16px;
 `;
 
+interface JokeViewProps {
+  height: number;
+}
+
+export const JokeView = styled.div<JokeViewProps>`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: ${({ height }) => height}px;
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+`;
+
 export const Quote = styled.div`
   :first-child {
     align-self: flex-start;
@@ -67,6 +78,7 @@ export const Quote = styled.div`
 `;
 
 export const JokeText = styled.p`
+  position: absolute;
   font-size: 24px;
   text-align: justify;
 `;
@@ -77,19 +89,29 @@ export const JokeOptions = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  button {
+    display: grid;
+    place-content: center;
+
+    + button {
+      margin-left: 8px;
+    }
+  }
+
+  > div {
+    display: flex;
+  }
+
   svg {
     cursor: pointer;
     width: 32px;
     height: 32px;
     transition: 0.2s;
-
-    :hover {
-      color: ${({ theme }) => theme.secondary};
-      transform: scale(1.1);
-    }
-
-    + svg {
-      margin-left: 8px;
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        color: ${({ theme }) => theme.secondary};
+        transform: scale(1.1);
+      }
     }
   }
 `;

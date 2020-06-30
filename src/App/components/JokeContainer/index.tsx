@@ -1,32 +1,53 @@
-import React from "react";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import {
   FaFacebook,
-  FaInstagram,
   FaQuoteLeft,
   FaQuoteRight,
+  FaReddit,
   FaRegStar,
   FaTwitter,
   FaWhatsapp,
 } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import {
+  FacebookShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import Joke from "../../../models/Joke";
+import { fetchRandomJoke } from "../../../redux/Jokes/actions";
 import {
   Container,
   HorizontalLine,
   JokeArea,
   JokeOptions,
   JokeText,
+  JokeView,
   JokeWrapper,
+  Loading,
   NavigationButtons,
   Quote,
-  Loading,
 } from "./styles";
-import Joke from "../../../models/Joke";
 
 interface Props {
   joke: Joke | null;
+  canNavigate?: boolean;
+  showOptions?: boolean;
 }
 
-const JokeContainer: React.FC<Props> = ({ joke }) => {
+const JokeContainer: React.FC<Props> = ({ showOptions, canNavigate, joke }) => {
+  const dispatch = useDispatch();
+  const JokeTextRef = useRef<HTMLParagraphElement>(null);
+  const [height, setHeight] = useState(32);
+  const getNewJoke = useCallback(() => dispatch(fetchRandomJoke()), [dispatch]);
+
+  useLayoutEffect(() => {
+    setHeight(
+      joke ? JokeTextRef.current?.getBoundingClientRect().height || 32 : 32
+    );
+  }, [joke, setHeight]);
+
   return (
     <Container>
       <JokeWrapper>
@@ -34,36 +55,48 @@ const JokeContainer: React.FC<Props> = ({ joke }) => {
           <Quote>
             <FaQuoteLeft />
           </Quote>
-          {joke ? (
-            <JokeText>{joke.value}</JokeText>
-          ) : (
-            <Loading>
-              <div />
-              <div />
-              <div />
-            </Loading>
-          )}
+          <JokeView height={height}>
+            {joke ? (
+              <JokeText ref={JokeTextRef}>{joke.value}</JokeText>
+            ) : (
+              <Loading>
+                <div />
+                <div />
+                <div />
+              </Loading>
+            )}
+          </JokeView>
+
           <Quote>
             <FaQuoteRight />
           </Quote>
         </JokeArea>
-        <HorizontalLine />
-        <JokeOptions>
-          <FaRegStar />
-          <div>
-            <FaFacebook />
-            <FaWhatsapp />
-            <FaTwitter />
-            <FaInstagram />
-          </div>
-        </JokeOptions>
+        {showOptions && (
+          <>
+            <HorizontalLine />
+            <JokeOptions>
+              <FaRegStar />
+              <div>
+                <FacebookShareButton url={window.location.href}>
+                  <FaFacebook />
+                </FacebookShareButton>
+                <WhatsappShareButton url={window.location.href}>
+                  <FaWhatsapp />
+                </WhatsappShareButton>
+                <TwitterShareButton url={window.location.href}>
+                  <FaTwitter />
+                </TwitterShareButton>
+                <RedditShareButton url={window.location.href}>
+                  <FaReddit />
+                </RedditShareButton>
+              </div>
+            </JokeOptions>
+          </>
+        )}
       </JokeWrapper>
-      <NavigationButtons>
-        <IoIosArrowBack />
-      </NavigationButtons>
-      <NavigationButtons>
-        <IoIosArrowForward />
-      </NavigationButtons>
+      {canNavigate && (
+        <NavigationButtons onClick={getNewJoke}>Next Joke</NavigationButtons>
+      )}
     </Container>
   );
 };

@@ -6,7 +6,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+
+  > button {
+    display: flex;
+    justify-content: center;
+    background: none;
+    border: none;
+    width: 100%;
+  }
 `;
 
 export const WelcomeMsg = styled.div`
@@ -21,24 +28,24 @@ export const WelcomeMsg = styled.div`
   border-radius: 8px;
   overflow: hidden;
 
-  p {
+  > p {
     position: relative;
     z-index: 2;
     padding: 16px;
     font-size: 32px;
     text-align: center;
 
-    span {
+    > span {
       font-size: 96px;
       font-family: "Pangolin", cursive;
     }
 
-    a {
+    > a {
       color: ${({ theme }) => theme.font};
     }
   }
 
-  button {
+  > button {
     position: relative;
     z-index: 2;
     font-size: 32px;
@@ -48,9 +55,11 @@ export const WelcomeMsg = styled.div`
     border-radius: 8px;
     padding: 8px 32px;
     transition: background 0.2s;
-
-    :hover {
-      background: ${({ theme }) => shade(0.2, theme.secondary)};
+    align-self: flex-start;
+    @media (hover: hover) and (pointer: fine) {
+      :hover {
+        background: ${({ theme }) => shade(0.2, theme.secondary)};
+      }
     }
   }
 `;
