@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Chuck-Jokes/static/js/main.dcbf45c8.chunk.js",
-    "main.js.map": "/Chuck-Jokes/static/js/main.dcbf45c8.chunk.js.map",
+    "main.js": "/Chuck-Jokes/static/js/main.318f90cb.chunk.js",
+    "main.js.map": "/Chuck-Jokes/static/js/main.318f90cb.chunk.js.map",
     "runtime-main.js": "/Chuck-Jokes/static/js/runtime-main.da0be3c2.js",
     "runtime-main.js.map": "/Chuck-Jokes/static/js/runtime-main.da0be3c2.js.map",
-    "static/js/2.4d818ef5.chunk.js": "/Chuck-Jokes/static/js/2.4d818ef5.chunk.js",
-    "static/js/2.4d818ef5.chunk.js.map": "/Chuck-Jokes/static/js/2.4d818ef5.chunk.js.map",
+    "static/js/2.d93def91.chunk.js": "/Chuck-Jokes/static/js/2.d93def91.chunk.js",
+    "static/js/2.d93def91.chunk.js.map": "/Chuck-Jokes/static/js/2.d93def91.chunk.js.map",
     "index.html": "/Chuck-Jokes/index.html",
-    "precache-manifest.5a7fc556fa661d8303b3c96bcb2389fb.js": "/Chuck-Jokes/precache-manifest.5a7fc556fa661d8303b3c96bcb2389fb.js",
+    "precache-manifest.79b280b7ae4a9f51c64db01f89c5bd60.js": "/Chuck-Jokes/precache-manifest.79b280b7ae4a9f51c64db01f89c5bd60.js",
     "service-worker.js": "/Chuck-Jokes/service-worker.js",
-    "static/js/2.4d818ef5.chunk.js.LICENSE.txt": "/Chuck-Jokes/static/js/2.4d818ef5.chunk.js.LICENSE.txt"
+    "static/js/2.d93def91.chunk.js.LICENSE.txt": "/Chuck-Jokes/static/js/2.d93def91.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.da0be3c2.js",
-    "static/js/2.4d818ef5.chunk.js",
-    "static/js/main.dcbf45c8.chunk.js"
+    "static/js/2.d93def91.chunk.js",
+    "static/js/main.318f90cb.chunk.js"
   ]
 }
