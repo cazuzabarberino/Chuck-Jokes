@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Explore from "../pages/Explore";
 import Home from "../pages/Home";
 import { Content } from "./styles";
+import Footer from "../components/Footer";
 
 export const routes = {
   home: "/",
@@ -21,6 +22,7 @@ const Router: React.FC = () => {
           <Route exact path={routes.home} component={Home} />
         </Switch>
       </Content>
+      <Footer />
     </HashRouter>
   );
 };

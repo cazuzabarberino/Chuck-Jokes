@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     dispatch(fetchRandomJoke());
     const interval = setInterval(() => {
       dispatch(fetchRandomJoke());
-    }, 8000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [dispatch]);
 

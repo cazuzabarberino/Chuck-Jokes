@@ -26,7 +26,6 @@ export const WelcomeMsg = styled.div`
   justify-items: center;
   align-items: center;
   border-radius: 8px;
-  overflow: hidden;
 
   > p {
     position: relative;
@@ -36,6 +35,7 @@ export const WelcomeMsg = styled.div`
     text-align: center;
 
     > span {
+      position: relative;
       font-size: 96px;
       font-family: "Pangolin", cursive;
     }
