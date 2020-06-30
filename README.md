@@ -2,7 +2,7 @@
   <img  src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="" width="100px" />
 </div>
 
-<h1 align="center" >Fake Trello</h1>
+<h1 align="center" >Chuck Jokes</h1>
 
 <blockquote align="center">
   Challenge made during the selection process for the company GuiaBolso.
