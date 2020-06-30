@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Container, WelcomeMsg } from "./styles";
 import JokeContainer from "../../components/JokeContainer";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,9 +16,11 @@ const Home: React.FC = () => {
     dispatch(fetchRandomJoke());
     const interval = setInterval(() => {
       dispatch(fetchRandomJoke());
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [dispatch]);
+
+  const goToExplore = useCallback(() => push(routes.explore), [push]);
 
   return (
     <Container>
@@ -38,14 +40,7 @@ const Home: React.FC = () => {
           </a>
           .
         </p>
-        <button
-          onClick={() => {
-            push(routes.explore);
-            console.log("lol");
-          }}
-        >
-          Explore Jokes
-        </button>
+        <button onClick={goToExplore}>Explore Jokes</button>
       </WelcomeMsg>
     </Container>
   );

@@ -10,7 +10,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 4px;
   overflow: hidden;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, .1);
 `;
 
 export const JokeWrapper = styled.div`

@@ -5,8 +5,10 @@ export enum JokesActionType {
   SET_RANDOM_JOKE = "SET_RANDOM_JOKE",
   FETCH_CATEGORIES = "FETCH_CATEGORIES",
   SET_CATEGORIES = "SET_CATEGORIES",
-  ADD_TO_FAVORITES = "ADD_TO_FAVORITES",
-  REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES",
+  SELECT_CATEGORY = "SELECT_CATEGORY",
+  UNSELECT_CATEGORY = "UNSELECT_CATEGORY",
+  SELECT_ALL = "SELECT_ALL",
+  UNSELECT_ALL = "UNSELECT_ALL",
 }
 
 export type JokesActions =
@@ -29,16 +31,22 @@ export type JokesActions =
       };
     }
   | {
-      type: JokesActionType.ADD_TO_FAVORITES;
+      type: JokesActionType.SELECT_CATEGORY;
       payload: {
-        id: string;
+        index: number;
       };
     }
   | {
-      type: JokesActionType.REMOVE_FROM_FAVORITES;
+      type: JokesActionType.UNSELECT_CATEGORY;
       payload: {
-        id: string;
+        index: number;
       };
+    }
+  | {
+      type: JokesActionType.SELECT_ALL;
+    }
+  | {
+      type: JokesActionType.UNSELECT_ALL;
     };
 
 export const fetchRandomJoke = (): JokesActions => ({
@@ -61,4 +69,25 @@ export const setCategories = (categories: string[]): JokesActions => ({
   payload: {
     categories,
   },
+});
+
+export const selectCategory = (index: number): JokesActions => ({
+  type: JokesActionType.SELECT_CATEGORY,
+  payload: {
+    index,
+  },
+});
+
+export const unselectCategory = (index: number): JokesActions => ({
+  type: JokesActionType.UNSELECT_CATEGORY,
+  payload: {
+    index,
+  },
+});
+
+export const selectAll = (): JokesActions => ({
+  type: JokesActionType.SELECT_ALL,
+});
+export const unselectAll = (): JokesActions => ({
+  type: JokesActionType.UNSELECT_ALL,
 });
