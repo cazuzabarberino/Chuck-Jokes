@@ -18,7 +18,12 @@ export const GlobalStyle = createGlobalStyle`
 
   button, a 
   {
-    cursor: pointer;
+    cursor:pointer;
+
+    :disabled{
+      cursor: auto;
+    }
+
   }
 
   body 

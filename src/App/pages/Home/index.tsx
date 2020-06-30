@@ -13,11 +13,8 @@ const Home: React.FC = () => {
   const { push } = useHistory();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchRandomJoke());
-    const interval = setInterval(() => {
-      dispatch(fetchRandomJoke());
-    }, 8000);
-    return () => clearInterval(interval);
   }, [dispatch]);
 
   const goToExplore = useCallback(() => push(routes.explore), [push]);
@@ -30,11 +27,6 @@ const Home: React.FC = () => {
           <br />
           <span>Chuck Jokes!</span>
         </p>
-      </WelcomeMsg>
-      <button>
-        <JokeContainer joke={joke} />
-      </button>
-      <WelcomeMsg>
         <p>
           A Chuck Norris facts explorer powered by{" "}
           <a
@@ -46,6 +38,9 @@ const Home: React.FC = () => {
           </a>
           .
         </p>
+      </WelcomeMsg>
+      <JokeContainer joke={joke} canClick />
+      <WelcomeMsg>
         <button onClick={goToExplore}>Explore Jokes</button>
       </WelcomeMsg>
     </Container>

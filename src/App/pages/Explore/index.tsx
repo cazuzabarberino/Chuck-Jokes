@@ -18,6 +18,10 @@ const Explore: React.FC<RouteComponentProps<{ jokeid: string }>> = ({
   const mountRef = useRef(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (match.params.jokeid && match.params.jokeid !== previousIdRef.current) {
       dispatch(fetchJokeById(match.params.jokeid));
     }
@@ -41,7 +45,7 @@ const Explore: React.FC<RouteComponentProps<{ jokeid: string }>> = ({
 
   return (
     <Container>
-      <JokeContainer joke={joke} canNavigate showOptions />
+      <JokeContainer joke={joke} canClick canNavigate showOptions />
       <CategorySelector />
     </Container>
   );
