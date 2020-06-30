@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Chuck-Jokes/static/js/main.a38518f0.chunk.js",
-    "main.js.map": "/Chuck-Jokes/static/js/main.a38518f0.chunk.js.map",
+    "main.js": "/Chuck-Jokes/static/js/main.a4c69c23.chunk.js",
+    "main.js.map": "/Chuck-Jokes/static/js/main.a4c69c23.chunk.js.map",
     "runtime-main.js": "/Chuck-Jokes/static/js/runtime-main.da0be3c2.js",
     "runtime-main.js.map": "/Chuck-Jokes/static/js/runtime-main.da0be3c2.js.map",
     "static/js/2.d93def91.chunk.js": "/Chuck-Jokes/static/js/2.d93def91.chunk.js",
     "static/js/2.d93def91.chunk.js.map": "/Chuck-Jokes/static/js/2.d93def91.chunk.js.map",
     "index.html": "/Chuck-Jokes/index.html",
-    "precache-manifest.12140a805c2a3dd841aee2b18528b336.js": "/Chuck-Jokes/precache-manifest.12140a805c2a3dd841aee2b18528b336.js",
+    "precache-manifest.c873f75734ea4acb2c322fd935735168.js": "/Chuck-Jokes/precache-manifest.c873f75734ea4acb2c322fd935735168.js",
     "service-worker.js": "/Chuck-Jokes/service-worker.js",
     "static/js/2.d93def91.chunk.js.LICENSE.txt": "/Chuck-Jokes/static/js/2.d93def91.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.da0be3c2.js",
     "static/js/2.d93def91.chunk.js",
-    "static/js/main.a38518f0.chunk.js"
+    "static/js/main.a4c69c23.chunk.js"
   ]
 }
