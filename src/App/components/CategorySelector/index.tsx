@@ -1,18 +1,18 @@
-import React, { useEffect, useMemo, useCallback } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 import {
   fetchCategories,
-  selectCategory,
-  unselectCategory,
   selectAll,
+  selectCategory,
   unselectAll,
+  unselectCategory,
 } from "../../../redux/Jokes/actions";
 import {
   CategoryArea,
   CategoryBtn,
-  Container,
   CategoryOptions,
+  Container,
 } from "./styles";
 
 const CategorySelector: React.FC = () => {

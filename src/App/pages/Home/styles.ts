@@ -43,6 +43,10 @@ export const WelcomeMsg = styled.div`
     > a {
       color: ${({ theme }) => theme.font};
     }
+
+    :last-child {
+      font-size: 24px;
+    }
   }
 
   > button {

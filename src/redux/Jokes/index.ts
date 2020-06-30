@@ -3,7 +3,7 @@ import { JokesActions, JokesActionType } from "./actions";
 
 export interface JokesState {
   joke: Joke | null;
-  favorites: string[];
+  favorites: Joke[] | null;
   categories: {
     selected: string[];
     unselected: string[];
@@ -12,7 +12,7 @@ export interface JokesState {
 
 const initialState: JokesState = {
   joke: null,
-  favorites: [],
+  favorites: null,
   categories: null,
 };
 
@@ -87,6 +87,51 @@ export const JokesReducer = (
           },
         };
       }
+    case JokesActionType.ADD_TO_FAVORITES:
+      if (!state.favorites) return state;
+      {
+        const { favorites } = state;
+        favorites.push(action.payload.joke);
+
+        localStorage.setItem(
+          "$Chuck-Jokes:Favorites",
+          JSON.stringify(favorites)
+        );
+
+        return {
+          ...state,
+        };
+      }
+    case JokesActionType.REMOVE_FROM_FAVORITES:
+      if (!state.favorites) return state;
+      {
+        const { favorites } = state;
+        const newFavorites = favorites.filter(
+          (joke) => joke.id !== action.payload.id
+        );
+
+        localStorage.setItem(
+          "$Chuck-Jokes:Favorites",
+          JSON.stringify(newFavorites)
+        );
+
+        return {
+          ...state,
+          favorites: newFavorites,
+        };
+      }
+    case JokesActionType.LOAD_FAVORITES:
+      const storegedFavorites = localStorage.getItem("$Chuck-Jokes:Favorites");
+      if (storegedFavorites) {
+        return {
+          ...state,
+          favorites: JSON.parse(storegedFavorites),
+        };
+      }
+      return {
+        ...state,
+        favorites: [],
+      };
     default:
       return state;
   }

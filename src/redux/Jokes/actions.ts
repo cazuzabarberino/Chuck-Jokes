@@ -10,6 +10,9 @@ export enum JokesActionType {
   UNSELECT_CATEGORY = "UNSELECT_CATEGORY",
   SELECT_ALL = "SELECT_ALL",
   UNSELECT_ALL = "UNSELECT_ALL",
+  ADD_TO_FAVORITES = "ADD_TO_FAVORITES",
+  REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES",
+  LOAD_FAVORITES = "LOAD_FAVORITES",
 }
 
 export type JokesActions =
@@ -54,6 +57,21 @@ export type JokesActions =
     }
   | {
       type: JokesActionType.UNSELECT_ALL;
+    }
+  | {
+      type: JokesActionType.ADD_TO_FAVORITES;
+      payload: {
+        joke: Joke;
+      };
+    }
+  | {
+      type: JokesActionType.REMOVE_FROM_FAVORITES;
+      payload: {
+        id: string;
+      };
+    }
+  | {
+      type: JokesActionType.LOAD_FAVORITES;
     };
 
 export const fetchRandomJoke = (): JokesActions => ({
@@ -104,4 +122,22 @@ export const selectAll = (): JokesActions => ({
 });
 export const unselectAll = (): JokesActions => ({
   type: JokesActionType.UNSELECT_ALL,
+});
+
+export const addToFavorites = (joke: Joke): JokesActions => ({
+  type: JokesActionType.ADD_TO_FAVORITES,
+  payload: {
+    joke,
+  },
+});
+
+export const removeFromFavorites = (id: string): JokesActions => ({
+  type: JokesActionType.REMOVE_FROM_FAVORITES,
+  payload: {
+    id,
+  },
+});
+
+export const loadFavorites = (): JokesActions => ({
+  type: JokesActionType.LOAD_FAVORITES,
 });

@@ -54,13 +54,17 @@ interface JokeViewProps {
   height: number;
 }
 
-export const JokeView = styled.div<JokeViewProps>`
+export const JokeView = styled.button<JokeViewProps>`
   position: relative;
   display: flex;
   justify-content: center;
   height: ${({ height }) => height}px;
+  min-height: 48px;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.font};
 `;
 
 export const Quote = styled.div`
@@ -80,7 +84,7 @@ export const Quote = styled.div`
 export const JokeText = styled.p`
   position: absolute;
   font-size: 24px;
-  text-align: justify;
+  text-align: left;
 `;
 
 export const JokeOptions = styled.div`
@@ -90,6 +94,8 @@ export const JokeOptions = styled.div`
   justify-content: space-between;
 
   button {
+    border: none;
+    background: none;
     display: grid;
     place-content: center;
 

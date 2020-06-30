@@ -23,7 +23,7 @@ export const CategoryArea = styled.div`
     left: 16px;
     font-weight: bold;
     padding: 0 8px;
-    font-size: 24px;
+    font-size: 16px;
     background: ${({ theme }) => theme.primary};
     transform: translateY(40%);
   }
