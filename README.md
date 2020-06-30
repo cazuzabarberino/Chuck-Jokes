@@ -1,5 +1,5 @@
 <div align="center">
-  <img  src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="" width="300px" />
+  <img  src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="" width="100px" />
 </div>
 
 <h1 align="center" >Fake Trello</h1>
@@ -18,16 +18,16 @@
   <img alt="Language: Typescript" src="https://img.shields.io/badge/Language-TypeScript-F9386A">
 </p>
 
-<p align="center">
+<h3 align="center">
 |&nbsp;&nbsp;&nbsp;
   <a href="https://cazuzabarberino.github.io/Chuck-Jokes/#/" target="_blank">
     Live Demo
   </a>
   &nbsp;&nbsp;&nbsp;|
-</p>
+</h3>
 
 <div align="center">
-  <img  src="mdMedia/1.gif" alt="" width="500px" />
+  <img  src="md/1.gif" alt="" width="500px" />
 </div>
 
 ## Contents
@@ -39,14 +39,14 @@
 
 ## Motivation
 
-Challenge project 
+Challenge project
 
 ## Features
 
-  - Explore chuck norris facts.
-  - Filter them by multiple categories.
-  - Save your favorite jokes.
-  - Share jokes on facebook, whatsapp, twitter or reddit.
+- Explore chuck norris facts.
+- Filter them by multiple categories.
+- Save your favorite jokes.
+- Share jokes on facebook, whatsapp, twitter or reddit.
 
 ## Libraries & Technologies
 
