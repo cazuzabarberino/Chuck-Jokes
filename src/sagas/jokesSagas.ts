@@ -1,7 +1,11 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getRandomJoke, getCategories } from "../services/chucknorrisApi";
 import {
-  setRandomJoke,
+  getRandomJoke,
+  getJokeById,
+  getCategories,
+} from "../services/chucknorrisApi";
+import {
+  setJoke,
   setCategories,
   JokesActionType,
 } from "../redux/Jokes/actions";
@@ -11,14 +15,28 @@ export const jokesWatchers = {
     yield takeLatest(JokesActionType.FETCH_RANDOM_JOKE, fetchRandomJoke);
   },
 
+  watchFetchJokeById: function* () {
+    yield takeLatest(JokesActionType.FETCH_JOKE_BY_ID, fetchJokeById);
+  },
+
   watchFetchCategories: function* () {
     yield takeLatest(JokesActionType.FETCH_CATEGORIES, fetchCategories);
   },
 };
 
 export function* fetchRandomJoke() {
-  const joke = yield call(() => getRandomJoke());
-  yield put(setRandomJoke(joke));
+  const joke = yield call(getRandomJoke);
+  yield put(setJoke(joke));
+}
+
+export function* fetchJokeById({
+  payload: { id },
+}: {
+  type: JokesActionType.FETCH_JOKE_BY_ID;
+  payload: { id: string };
+}) {
+  const joke = yield call(() => getJokeById(id));
+  yield put(setJoke(joke));
 }
 
 export function* fetchCategories() {

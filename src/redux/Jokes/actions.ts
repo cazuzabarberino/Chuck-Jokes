@@ -2,7 +2,8 @@ import Joke from "../../models/Joke";
 
 export enum JokesActionType {
   FETCH_RANDOM_JOKE = "FETCH_RANDOM_JOKE",
-  SET_RANDOM_JOKE = "SET_RANDOM_JOKE",
+  FETCH_JOKE_BY_ID = "FETCH_JOKE_BY_ID",
+  SET_JOKE = "SET_JOKE",
   FETCH_CATEGORIES = "FETCH_CATEGORIES",
   SET_CATEGORIES = "SET_CATEGORIES",
   SELECT_CATEGORY = "SELECT_CATEGORY",
@@ -16,7 +17,13 @@ export type JokesActions =
       type: JokesActionType.FETCH_RANDOM_JOKE;
     }
   | {
-      type: JokesActionType.SET_RANDOM_JOKE;
+      type: JokesActionType.FETCH_JOKE_BY_ID;
+      payload: {
+        id: string;
+      };
+    }
+  | {
+      type: JokesActionType.SET_JOKE;
       payload: {
         joke: Joke;
       };
@@ -53,8 +60,15 @@ export const fetchRandomJoke = (): JokesActions => ({
   type: JokesActionType.FETCH_RANDOM_JOKE,
 });
 
-export const setRandomJoke = (joke: Joke): JokesActions => ({
-  type: JokesActionType.SET_RANDOM_JOKE,
+export const fetchJokeById = (id: string): JokesActions => ({
+  type: JokesActionType.FETCH_JOKE_BY_ID,
+  payload: {
+    id,
+  },
+});
+
+export const setJoke = (joke: Joke): JokesActions => ({
+  type: JokesActionType.SET_JOKE,
   payload: {
     joke,
   },

@@ -17,7 +17,7 @@ const Router: React.FC = () => {
       <Header />
       <Content>
         <Switch>
-          <Route path={routes.explore} component={Explore} />
+          <Route path={routes.explore + "/:jokeid?"} component={Explore} />
           <Route exact path={routes.home} component={Home} />
         </Switch>
       </Content>

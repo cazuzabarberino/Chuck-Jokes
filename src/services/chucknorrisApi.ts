@@ -26,8 +26,18 @@ export const getRandomJoke = async (): Promise<Joke> => {
 export const getCategories = async (): Promise<string[]> => {
   try {
     const response = await api.get<string[]>("categories");
+
     return response.data;
   } catch (err) {
     return [];
+  }
+};
+
+export const getJokeById = async (id: string): Promise<Joke> => {
+  try {
+    const response = await api.get<Joke>(id);
+    return response.data;
+  } catch (err) {
+    return {} as Joke;
   }
 };

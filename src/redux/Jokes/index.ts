@@ -21,12 +21,13 @@ export const JokesReducer = (
   action: JokesActions
 ): JokesState => {
   switch (action.type) {
+    case JokesActionType.FETCH_JOKE_BY_ID:
     case JokesActionType.FETCH_RANDOM_JOKE:
       return {
         ...state,
         joke: null,
       };
-    case JokesActionType.SET_RANDOM_JOKE:
+    case JokesActionType.SET_JOKE:
       return {
         ...state,
         joke: action.payload.joke,
