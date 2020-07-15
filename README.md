@@ -5,7 +5,7 @@
 <h1 align="center" >Chuck Jokes</h1>
 
 <blockquote align="center">
-  Challenge made during the selection process for the company GuiaBolso.
+  Challenge made during a selection process.
 </blockquote>
 
 <p align="center">
@@ -39,7 +39,6 @@
 
 ## Motivation
 
-This project is part of the selection process of the company GuiaBolso.
 In this project I improved my knowledge in react hooks and was able to learn more about how to manage the state using redux and redux-saga.
 
 ## Features
